@@ -1,0 +1,241 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap');
+/* @import "~@ng-select/ng-select/themes/default.theme.css"; */
+/* @import '../node_modules/font-awesome/css/font-awesome.css'; */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+@font-face {
+  font-family: "Gotham";
+  src: local("Gotham-Light"), url(./assets/fonts/Gotham-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham";
+  src: local("Gotham-Bold"), url(./assets/fonts/Gotham-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: local("Gotham-Medium"), url(./assets/fonts/Gotham-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: local("Gotham-Book"), url(./assets/fonts/Gotham-Book.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.fontGotham {
+  font-family: "Gotham";
+}
+.kycValues p, .posRel p, .reivewRow span  {
+  font-family: "Gotham";
+}
+body {
+font-family: "Raleway";
+font-size: 14px;
+}
+* {
+padding: 0px;
+margin: 0px;
+}
+*, body {
+box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+a:hover {
+    color: #108a43;
+}
+
+.custModal label {
+    color: #0c4a85;
+    font-weight: 600;
+    font-size: 13px;
+}
+.custModal p {
+    color: #000;
+}
+.posRel {
+    position: relative;
+}
+.matCloseBtn {
+    right: 20px;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    top: 15px;
+    color: #fff;
+    background: #000;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 30px;
+}
+.matCloseBtn:hover {
+    color: #fff;
+    background: #000;
+}
+
+
+
+.projDiv .row {
+    margin: 0;
+}
+.projDiv {
+    background: #F9F9F9;
+    height: calc(100vh);
+}
+.mainNav {
+    background: #fff;
+    height: calc(100vh);
+    position: relative;
+}
+.mainContent {
+    padding-top: 10px;
+}
+.pageTitle {
+    margin-bottom: 20px;
+}
+.pageTitle h5 {
+    color: #0c4a85;
+}
+.pageTitle h5 > span {
+    border-bottom: 3px solid #108a43;
+}
+.tableBox {
+    background: #fff;
+    box-shadow: 5px 5px 5px #e9e9e9;
+    margin-bottom: 20px;
+    border: 1px solid #e9e9e9;
+    padding-top: 10px;
+}
+.custForm {
+    padding: 20px;
+    background: #fff;
+    box-shadow: 5px 5px 5px #e9e9e9;
+    margin-bottom: 20px;
+    border: 1px solid #e9e9e9;
+}
+.btnRow {
+    margin-top: 10px;
+}
+.loginForm label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #00386d;
+    margin-bottom: 5px;
+}
+.loginForm .form-group {
+    margin-bottom: 10px;
+}
+.loginForm .btn {
+    width: 300px;
+    border-radius: 100px;
+    background: #108a43;
+    border-color: #108a43;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.btnRight {
+    text-align: right;
+}
+.actionsP {
+    margin: 0;
+}
+.viewBtn, .editBtn {
+    padding: 5px;
+    cursor: pointer;
+    margin-right: 3px;
+}
+.viewBtn {
+    background-color: #fff;
+    color: #108a43;
+}
+.editBtn  {
+    background-color: #fff;
+    color: #00386d;
+}
+.actionsP span {
+    font-size: 16px;
+}
+.filterIcon .searchIcon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.pageTitle .btn-primary, .pageTitle .btn-primary:hover {
+    background-color: #108a43;
+    border-color: #108a43;
+}
+.iconPos {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+.errorDiv {
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Gotham";
+    color: #ff1515;
+}
+.mainPage .row {
+    margin: 0;
+}
+.sideNavBg {
+    height: calc(100vh);
+    background: #fff;
+}
+.boxTit h5 {
+    color: #000;
+    margin-bottom: 20px;
+}
+.custModalStyle {
+    padding: 20px;
+}
+
+.modalEvents li {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background: #000;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 30px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.modalEvents {
+    position: absolute;
+    top: 15px;
+    right: 55px;
+}
+.modalEvents li a, .modalEvents li a:hover {
+    color: #fff;
+}
+.loading-text svg {
+    width: 30px;
+}
+.apiStar {
+    font-size: 26px;
+}

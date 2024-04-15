@@ -1,0 +1,72 @@
+<h2 mat-dialog-title>Document Details</h2>
+<div class="modalEvents">
+  <ul>
+    <!-- <li *ngIf="modaldata.fileType === 'image/jpeg' || modaldata.fileType === 'image/png'"><span (click)="zoomIn()"><i class="fa-solid fa-plus"></i></span></li>
+    <li *ngIf="modaldata.fileType === 'image/jpeg' || modaldata.fileType === 'image/png'"><span (click)="zoomOut()"><i class="fa-solid fa-minus"></i></span></li> -->
+    <li><a href="{{modaldataurl}}"><span><i class="fa-solid fa-download"></i></span></a></li>
+  </ul>
+</div>
+<button class="btn matCloseBtn" mat-dialog-close><i class="fa-solid fa-xmark"></i></button>
+<div mat-dialog-content>
+  <div class="row custModal">
+    <div class="col-md-12">
+      <div *ngIf="modaldata.fileType === 'image/tiff'">
+        <div> 
+          <ng-image-slider [images]="images" #nav [autoSlide]="1"
+          [imageSize]="{width: '100%', height: '100%'}"></ng-image-slider>
+        </div>
+      </div>
+      <div *ngIf="modaldata.fileType === 'image/jpeg' || modaldata.fileType === 'image/png'">
+        <pinch-zoom>
+          <img [src]="modaldataurl" />
+        </pinch-zoom>
+        <!-- <div #imgcontainer> 
+          <img #img width="100%" [src]="modaldataurl" />
+        </div> -->
+      </div>
+      
+        
+      <!-- <img style="width: 100%;" [src]="modaldataurl" /> -->
+        <!-- <img style="width: 100%;" [src]="modaldataurl" /> -->
+        <!-- <ngx-extended-pdf-viewer
+        [base64Src]="binString"
+  backgroundColor="#ffffff"
+  [height]="'90vh'"
+  [handTool]="false"
+  [showHandToolButton]="true">
+
+        </ngx-extended-pdf-viewer> -->
+        
+        <!-- <embed style="width: 100%;" [src]="data.uri" /> -->
+        <!-- <ngx-doc-viewer
+            url="data.uri"
+            viewer="google"
+            style="width:100%;height:93vh;" >
+        </ngx-doc-viewer> -->
+        <!-- <pdf-viewer [src]="data.uri"
+              [original-size]="false"
+              style="width: 400px; height: 500px"
+  ></pdf-viewer> -->
+    </div>
+  </div>
+</div>
+<!-- <mat-dialog-actions>
+  
+</mat-dialog-actions>  -->
+<style>
+::ng-deep .mat-mdc-dialog-container .mat-mdc-dialog-title {
+  color: #108a43;
+  font-weight: 500;
+}
+
+::ng-deep .mat-mdc-dialog-content {
+    max-height: 80vh;
+    overflow: auto;
+}
+::ng-deep .pz-zoom-button.pz-zoom-control-position-bottom {
+  top: 0;
+  bottom: auto !important;
+  left: auto !important;
+  right: 0;
+}
+</style>

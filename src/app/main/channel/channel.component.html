@@ -1,0 +1,281 @@
+
+<ngx-spinner type="ball-scale-multiple">
+  <svg width="135" height="140" viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+    <rect y="10" width="15" height="120" rx="6">
+        <animate attributeName="height"
+             begin="0.5s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0.5s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+    <rect x="30" y="10" width="15" height="120" rx="6">
+        <animate attributeName="height"
+             begin="0.25s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0.25s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+    <rect x="60" width="15" height="140" rx="6">
+        <animate attributeName="height"
+             begin="0s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+    <rect x="90" y="10" width="15" height="120" rx="6">
+        <animate attributeName="height"
+             begin="0.25s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0.25s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+    <rect x="120" y="10" width="15" height="120" rx="6">
+        <animate attributeName="height"
+             begin="0.5s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0.5s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+  </svg>
+</ngx-spinner>
+
+<div class="mainContent">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="pageTitle">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5><span>Channel</span> Master</h5>
+                </div>
+                <div class="col-md-6 btnRight">
+                  <div *ngIf="channelButtonFlag; else elsechannelButtonFlag">
+                    <button type="button" class="btn btn-primary" (click)="newChannel()">Create Channel</button>
+                  </div>
+                  <ng-template #elsechannelButtonFlag>
+                    <button type="button" class="btn btn-primary" (click)="showChannel()">Show Channel list</button>
+                  </ng-template>
+                </div>
+              </div>
+          </div>
+          
+          <div class="tableBox" *ngIf="channelTableFlag; else createChannelFlag">
+              <!-- <mat-form-field>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+              </mat-form-field> -->
+              <div class="row">
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                  <form class="loginForm" [formGroup]="filterForm">
+                    <div class="form-group">
+                      <div class="posRel filterIcon">
+                        <input type="text" formControlName="filter" (keyup)="applyFilter($event)" name="filter" class="form-control fontGotham" placeholder="Search" />
+                        <i class="fa-solid fa-magnifying-glass searchIcon"></i>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="tableView">
+                <table mat-table [dataSource]="dataSource1" matSort>
+
+                  <ng-container matColumnDef="channelId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Channel Id </th>
+                    <td mat-cell *matCellDef="let element"> {{element.channelId}} </td>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="channel">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Channel </th>
+                    <td mat-cell *matCellDef="let element"> {{element.channel}} </td>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="sourceId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Source ID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.sourceId}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="sourceName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Source Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.sourceName}} </td>
+                  </ng-container>  
+
+                  <ng-container matColumnDef="sourceDesc">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Source Description </th>
+                    <td mat-cell *matCellDef="let element"> {{element.sourceDesc}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="active">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Active </th>
+                    <td mat-cell *matCellDef="let element"> 
+                      <!-- <mat-checkbox (change)='activeChange($event)' color='primary' [(ngModel)]='isChecked' > Check me!</mat-checkbox> -->
+                      <div *ngIf="element.isActive === 'Y'">
+                        <label class="switch">
+                          <input type="checkbox" checked (change)="activeChange($event, element)">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      <div *ngIf="element.isActive === 'N'">
+                        <label class="switch">
+                          <input type="checkbox" (change)="activeChange($event, element)">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+                    <td mat-cell *matCellDef="let element">
+                      <p class="actionsP">
+                        <span (click)="viewChannel(element)" class="viewBtn"><i class="fa-regular fa-eye"></i></span>
+                        <span (click)="editChannel(element)" class="editBtn"><i class="fa-regular fa-pen-to-square"></i></span>
+                      </p>
+                      <!-- <p (click)="editUser(element)">edit</p> -->
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="noData">
+                    <td class="text-center" mat-footer-cell *matFooterCellDef [attr.colspan]="displayedColumns1.length">
+                      No records found.
+                    </td>
+                </ng-container>
+                
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+                  <tr mat-footer-row *matFooterRowDef="['noData']" [hidden]="dataSource1 && dataSource1.data.length > 0"></tr>
+                </table>
+                <mat-paginator  [pageSize]="10" [pageSizeOptions]="[10, 20, 100]"></mat-paginator>
+                </div>
+          </div> 
+          <ng-template #createChannelFlag>
+          <div class="custForm">
+            <div class="boxTit">
+              <h5>Create Channel</h5>
+            </div>  
+            <form class="loginForm" [formGroup]="channelForm">
+              <!-- <form class="loginForm" [formGroup]="channelForm" (ngSubmit)="channelSubmit()"> -->
+              <div class="row">
+                <!-- <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="sourceid">Source ID </label>
+                  <ng-select [items]="sorceList" bindLabel="name"  [searchable]="false" [clearable]="false" 
+                  placeholder="Select Source" formControlName="selectSource" bindValue="id" (change)="channelSelect($event, 'source')">
+                  </ng-select>
+                  </div>
+                </div> -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="sourceid">Source ID </label>
+                      <input type="text" formControlName="sourceid" name="sourceid" class="form-control fontGotham" />
+                      <div class="errorDiv" *ngIf="sourceidVal.invalid && (sourceidVal.dirty || sourceidVal.touched)">
+                        <div *ngIf="sourceidVal.errors?.['required']">Please Enter Source ID.</div> 
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="sourcename">Source Name </label>
+                    <input type="text" formControlName="sourcename" name="sourcename" class="form-control fontGotham" />
+                    <div class="errorDiv" *ngIf="sourcenameVal.invalid && (sourcenameVal.dirty || sourcenameVal.touched)">
+                      <div *ngIf="sourcenameVal.errors?.['required']">Please Enter Source name.</div> 
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="sourceDesc">Source Description </label>
+                      <input type="text" formControlName="sourceDesc" name="sourceDesc" class="form-control fontGotham" />
+                      <div class="errorDiv" *ngIf="sourceDescVal.invalid && (sourceDescVal.dirty || sourceDescVal.touched)">
+                        <div *ngIf="sourceDescVal.errors?.['required']">Please Enter Source Description</div> 
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="channel">Channel </label>
+                    <!-- <ng-select [items]="channelList" bindLabel="name"  [searchable]="false" [clearable]="false" 
+                  placeholder="Select Channel" formControlName="channel" bindValue="id" (change)="channelSelect($event, 'channel')">
+                  </ng-select> -->
+                    <input type="text" formControlName="channel" name="channel" class="form-control fontGotham" />
+                    <div class="errorDiv" *ngIf="channelVal.invalid && (channelVal.dirty || channelVal.touched)">
+                      <div *ngIf="channelVal.errors?.['required']">Please Enter Channel name.</div> 
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="osNamespace">OS Name Space </label>
+                      <input type="text" formControlName="osNamespace" name="osNamespace" class="form-control fontGotham" />
+                      <div class="errorDiv" *ngIf="osNamespaceVal.invalid && (osNamespaceVal.dirty || osNamespaceVal.touched)">
+                        <div *ngIf="osNamespaceVal.errors?.['required']">Please Enter OS Name Space.</div> 
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="osBucketname">OS Bucket Name </label>
+                    <input type="text" formControlName="osBucketname" name="osBucketname" class="form-control fontGotham" />
+                    <div class="errorDiv" *ngIf="osBucketnameVal.invalid && (osBucketnameVal.dirty || osBucketnameVal.touched)">
+                      <div *ngIf="osBucketnameVal.errors?.['required']">Please Enter OS Bucket Name.</div> 
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="notes">Notes </label>
+                      <input type="text" formControlName="notes" name="notes" class="form-control fontGotham" />
+                      <div class="errorDiv" *ngIf="notesVal.invalid && (notesVal.dirty || notesVal.touched)">
+                        <div *ngIf="notesVal.errors?.['required']">Please Enter notes.</div> 
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div *ngIf="createdByFlag; else updatedByFlag">
+                    <div class="form-group">
+                      <label for="createdBy">Created By </label>
+                      <input type="text" formControlName="createdBy" name="createdBy" class="form-control fontGotham" />
+                      <div class="errorDiv" *ngIf="createdByVal.invalid && (createdByVal.dirty || createdByVal.touched)">
+                        <div *ngIf="createdByVal.errors?.['required']">Please Enter created by.</div> 
+                      </div>
+                    </div>
+                  </div>
+                  <ng-template #updatedByFlag>
+                    <div class="form-group">
+                      <label for="updatedBy">Updated By </label>
+                      <input type="text" formControlName="updatedBy" name="updatedBy" class="form-control fontGotham" />
+                      <div class="errorDiv" *ngIf="updatedByVal.invalid && (updatedByVal.dirty || updatedByVal.touched)">
+                        <div *ngIf="updatedByVal.errors?.['required']">Please Enter updated by.</div> 
+                      </div>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+              
+              
+              <div class="form-group btnRow text-center">
+                <div *ngIf="createFlag; else elseBlock">
+                  <button type="submit" class="btn btn-primary" (click)="channelSubmit()">Create Channel</button>
+                </div>
+                <ng-template #elseBlock>
+                  <button type="submit" class="btn btn-primary" (click)="channelUpdate()">Update Channel</button>
+                </ng-template>
+              </div>
+          </form>
+          </div>
+        </ng-template>
+        </div>
+    </div>

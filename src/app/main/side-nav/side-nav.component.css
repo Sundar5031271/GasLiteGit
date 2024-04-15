@@ -1,0 +1,61 @@
+.sideLogo img {
+    width: 180px;
+}
+.sideLogo {
+    padding: 10px 10px 20px;
+}
+.menuList > ul > li {
+    margin-bottom: 1px;
+}
+.menuList > ul > li > a {
+    padding: 10px;
+    display: block;
+    border-radius: 20px;
+    font-weight: 500;
+}
+.menuList > ul > li > a.active, .menuList > ul > li:hover > a {
+    background-color: #a7ffcc;
+    color: #108a43;
+}
+.proTitle h4 {
+    padding-left: 8px;
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+}
+.loginUser {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+}
+.proTitle {
+    background: #0c4a85;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.navUser {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #ccc;
+}
+.navUser span {
+    font-size: 16px;
+    color: #108a43;
+}
+.navLogout span {
+    color: #0c4a85;
+    display: inline-block;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.navLogout span > i {
+    margin-left: 10px;
+}

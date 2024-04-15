@@ -1,0 +1,83 @@
+<div class="custModalStyle">
+<h2 mat-dialog-title>Channel Details</h2>
+<button class="btn matCloseBtn" mat-dialog-close (click)="close()"><i class="fa-solid fa-xmark"></i></button>
+<div mat-dialog-content>
+  <div class="row custModal fontGotham">
+    <div class="col-md-6">
+      <label>Channel ID</label>
+      <p>{{data.channelId}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Source ID</label>
+      <p>{{data.sourceId}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Active</label>
+      <p>{{data.isActive}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Source Name</label>
+      <p>{{data.sourceName}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Source Description</label>
+      <p>{{data.sourceDesc}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Channel</label>
+      <p>{{data.channel}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>OS Name Space</label>
+      <p>{{data.osNamespace}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>OS Bucket Name</label>
+      <p>{{data.osBucketname}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>API Key</label>
+      <p class="apiStar">{{apiKey}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>API Valid Until</label>
+      <p>{{apiDate}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Notes</label>
+      <p>{{data.notes}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Created By</label>
+      <p>{{data.createdBy}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Created On</label>
+      <p>{{createdDate}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Updated By</label>
+      <p>{{data.updatedBy}}</p>
+    </div>
+    <div class="col-md-6">
+      <label>Updated On</label>
+      <p>{{updatedDate}}</p>
+    </div>
+  </div>
+</div>
+</div>
+<!-- <button class="btn matCloseBtn" mat-dialog-close><i class="fa-solid fa-xmark"></i></button> -->
+<!-- <div mat-dialog-actions>
+  <button class="btn" (click)="close()">close</button>
+</div>  -->
+<style>
+::ng-deep .mat-mdc-dialog-container .mat-mdc-dialog-title {
+  color: #108a43;
+  font-weight: 500;
+}
+
+::ng-deep .mat-mdc-dialog-content {
+    max-height: 80vh;
+    overflow: hidden;
+}
+</style>

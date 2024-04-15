@@ -1,0 +1,114 @@
+.loginPageBG::before {
+    content: "";
+    background: url('../../assets/login_bg.jpg') no-repeat scroll 0 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.loginContent {
+    position: relative;
+    z-index: 2;
+    height: calc(100vh);
+}
+.loginBox {
+    padding: 50px;
+    background: #fff;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+}
+.logo img {
+    width: 180px;
+}
+.logo {
+    margin-bottom: 20px;
+}
+.loginTitle h2 {
+    font-weight: 600;
+    color: #0c4a85;
+    font-size: 22px;
+}
+.loginTitle h2 span {
+    border-bottom: 3px solid #108a43;
+}
+.loginLeft {
+    position: relative;
+    padding-left: 40px;
+}
+.loginBox {
+    position: relative;
+}
+.loginBox::before {
+    content: "";
+    height: 80px;
+    width: 10px;
+    border-radius: 5px;
+    background: #0c4a85;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(0px, -50%);
+}
+.inputBox label {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 600;
+}
+.inputBox {
+    padding: 2px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+.inputBox input, .inputBox select {
+    border: 0;
+    padding: 8px 8px 8px 0px; 
+    font-size: 16px;
+    width: 100%;
+    font-weight: 600;
+}
+.inputBox input:focus-visible {
+    outline: unset;
+}
+.inputBox::before {
+    content: "";
+    height: 52px;
+    width: 5px;
+    background: #ccc;
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    border-radius: 5px;
+}
+.inputIcon {
+    position: absolute;
+    right: 15px;
+    bottom: 18px;
+    font-size: 22px;
+    color: #0c4a85;
+}
+.loginTitle {
+    margin-bottom: 30px;
+}
+.loginForm .form-group {
+    margin-bottom: 20px;
+}
+.loginForm .btn {
+    width: 100%;
+    padding: 12px;
+}
+.loginImg img {
+    width: 100%;
+}
+.loginImg {
+    position: absolute;
+    left: -100px;
+    top: -105px;
+    width: 500px;
+}

@@ -1,0 +1,26 @@
+.searchTable.tableBox {
+    padding-top: 10px;
+}
+.searchTable .loginForm .btn {
+    width: auto;
+    border-radius: 5px;
+}
+.loginForm .searchLabel {
+    line-height: 30px;
+}
+.searchBtn {
+    margin-top: 26px;
+}
+.searchBtn span {
+    margin-right: 10px;
+}
+.tableBox table tr th {
+    background: #d1ffe4;
+    color: #108a43;
+    font-weight: 600;
+    text-wrap: nowrap;
+    border-top: 1px solid #e9e9e9;
+}
+::ng-deep .mat-mdc-row, ::ng-deep .mat-mdc-header-row {
+    height: 40px !important;
+}

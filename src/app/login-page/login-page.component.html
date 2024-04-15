@@ -1,0 +1,56 @@
+<div class="loginPage">
+    <div class="loginPageBG">
+        <div class="loginContent">
+            <div class="loginBox">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="loginLeft">
+                            <div class="loginImg">
+                                <img src="../../assets/login.svg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="loginRight">
+                            <div class="logo">
+                                <img src="../../assets/logo.png" />
+                            </div>
+                            <div class="loginTitle">
+                                <h2><span>GasLite</span></h2>
+                            </div>
+                            <div class="loginFormBox">
+                                <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="loginSubmit(loginForm)">
+                                    <div class="form-group">
+                                        <div class="inputBox posRel">
+                                            <label>Username</label>
+                                            <input type="text" class="fontGotham" formControlName="username" name="username" maxlength="40" placeholder="Username" />
+                                            <span class="inputIcon"><i class="fa-solid fa-user"></i></span>
+                                        </div>
+                                        <div class="errorDiv" *ngIf="usernameVal.invalid && (usernameVal.dirty || usernameVal.touched)">
+                                            <div *ngIf="usernameVal.errors?.['required']">Please Enter username.</div> 
+                                            <div *ngIf="usernameVal.errors?.['maxlength']">OTP Must be 40 letters</div>
+                                            <div *ngIf="usernameVal.errors?.['minlength']">OTP Must be 3 letters</div>  
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="inputBox posRel">
+                                            <label>Password</label>
+                                            <input type="password" class="fontGotham" formControlName="pass" name="pass" placeholder="Password" />
+                                            <span class="inputIcon"><i class="fa-solid fa-key"></i></span>
+                                        </div>
+                                        <div class="errorDiv" *ngIf="passwordVal.invalid && (passwordVal.dirty || passwordVal.touched)">
+                                            <div *ngIf="passwordVal.errors?.['required']">Please Enter password.</div> 
+                                        </div>
+                                    </div>
+                                    <div class="btnRow">
+                                        <button type="submit" class="btn loginBtn" >Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

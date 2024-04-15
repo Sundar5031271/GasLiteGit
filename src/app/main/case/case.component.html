@@ -1,0 +1,288 @@
+
+<ngx-spinner type="ball-scale-multiple">
+    <svg width="135" height="140" viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+      <rect y="10" width="15" height="120" rx="6">
+          <animate attributeName="height"
+               begin="0.5s" dur="1s"
+               values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+               repeatCount="indefinite" />
+          <animate attributeName="y"
+               begin="0.5s" dur="1s"
+               values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+               repeatCount="indefinite" />
+      </rect>
+      <rect x="30" y="10" width="15" height="120" rx="6">
+          <animate attributeName="height"
+               begin="0.25s" dur="1s"
+               values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+               repeatCount="indefinite" />
+          <animate attributeName="y"
+               begin="0.25s" dur="1s"
+               values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+               repeatCount="indefinite" />
+      </rect>
+      <rect x="60" width="15" height="140" rx="6">
+          <animate attributeName="height"
+               begin="0s" dur="1s"
+               values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+               repeatCount="indefinite" />
+          <animate attributeName="y"
+               begin="0s" dur="1s"
+               values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+               repeatCount="indefinite" />
+      </rect>
+      <rect x="90" y="10" width="15" height="120" rx="6">
+          <animate attributeName="height"
+               begin="0.25s" dur="1s"
+               values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+               repeatCount="indefinite" />
+          <animate attributeName="y"
+               begin="0.25s" dur="1s"
+               values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+               repeatCount="indefinite" />
+      </rect>
+      <rect x="120" y="10" width="15" height="120" rx="6">
+          <animate attributeName="height"
+               begin="0.5s" dur="1s"
+               values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+               repeatCount="indefinite" />
+          <animate attributeName="y"
+               begin="0.5s" dur="1s"
+               values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+               repeatCount="indefinite" />
+      </rect>
+    </svg>
+</ngx-spinner>
+<div class="projDiv">
+
+            <div class="mainContent">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pageTitle">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <h5><span>Case</span> Master</h5>
+                              </div>
+                              <div class="col-md-6 btnRight">
+                                <div *ngIf="caseButtonFlag; else elsecaseButtonFlag">
+                                  <button type="button" class="btn btn-primary" (click)="newCase()">Create Case</button>
+                                </div>
+                                <ng-template #elsecaseButtonFlag>
+                                  <button type="button" class="btn btn-primary" (click)="showCase()">Show Case List</button>
+                                </ng-template>
+                              </div>
+                            </div>
+                        </div>
+                        <!-- <div class="tableBox searchTable">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    
+                                </div>
+                            </div>
+                        </div> -->
+                        <div *ngIf="caseFormFlag; else elsecaseFormFlag">
+                            <div class="tableBox">
+                                <div class="row">
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <form class="loginForm" [formGroup]="newCaseForm">
+                                                <div class="row" formGroupName="caseAgreement">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="caseId" class="caseLabel">Agreement ID</label>
+                                                            <input type="hidden" formControlName="agreementId" name="agreementId" class="form-control" placeholder="Agreement ID" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <input type="text" formControlName="agreementValue" name="agreementValue" class="form-control fontGotham" placeholder="Please enter agreement ID" />
+                                                            <div class="errorDiv" *ngIf="agreementValueVal.invalid && (agreementValueVal.dirty || agreementValueVal.touched)">
+                                                                <div *ngIf="agreementValueVal.errors?.['required']">Please enter agreement ID.</div> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" formGroupName="caseLead">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="LeadId" class="caseLabel">Lead ID</label>
+                                                            <input type="hidden" formControlName="LeadId" name="LeadId" class="form-control" placeholder="Lead ID" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <input type="text" formControlName="leadValue" name="leadValue" class="form-control fontGotham" placeholder="Please enter Lead ID" />
+                                                            <div class="errorDiv" *ngIf="leadValueVal.invalid && (leadValueVal.dirty || leadValueVal.touched)">
+                                                                <div *ngIf="leadValueVal.errors?.['required']">Please enter Lead ID.</div> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" formGroupName="caseProspect">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="prospectId" class="caseLabel">Prospect ID</label>
+                                                            <input type="hidden" formControlName="prospectId" name="prospectId" class="form-control" placeholder="Prospect ID" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <input type="text" formControlName="prospectValue" name="prospectValue" class="form-control fontGotham" placeholder="Please enter Prospect ID" />
+                                                            <div class="errorDiv" *ngIf="prospectValueVal.invalid && (prospectValueVal.dirty || prospectValueVal.touched)">
+                                                                <div *ngIf="prospectValueVal.errors?.['required']">Please enter Prospect ID.</div> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" formGroupName="caseCust">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="custId" class="caseLabel">Customer ID</label>
+                                                            <input type="hidden" formControlName="custId" name="custId" class="form-control" placeholder="Customer ID" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <input type="text" formControlName="custValue" name="custValue" class="form-control fontGotham" placeholder="Please enter Customer ID" />
+                                                            <div class="errorDiv" *ngIf="custValueVal.invalid && (custValueVal.dirty || custValueVal.touched)">
+                                                                <div *ngIf="custValueVal.errors?.['required']">Please enter Customer ID.</div> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <!-- <div class="col-md-6">
+                                                        <label for="key">Key</label>
+                                                        <ng-select [items]="caseList" bindLabel="name" [searchable]="false" [clearable]="false" 
+                                                        placeholder="Select Key" formControlName="key" bindValue="id" (change)="caseSelect($event)">
+                                                        </ng-select>
+                                                        <div class="errorDiv" *ngIf="keyVal.invalid && (keyVal.dirty || keyVal.touched)">
+                                                            <div *ngIf="keyVal.errors?.['required']">Please select key.</div> 
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="keyvalue">Value</label>
+                                                        <input type="text" formControlName="keyvalue" name="keyvalue" class="form-control" placeholder="Value" />
+                                                        <div class="errorDiv" *ngIf="keyValueVal.invalid && (keyValueVal.dirty || keyValueVal.touched)">
+                                                            <div *ngIf="keyValueVal.errors?.['required']">Please Enter Value.</div> 
+                                                            <div *ngIf="keyValueVal.errors?.['pattern']">Please Enter only numbers.</div> 
+                                                        </div>
+                                                    </div> -->
+                                                    <div class="col-md-12 text-center btnRow form-group">
+                                                        <div *ngIf="createCaseFlag; else updateCaseFlag">
+                                                            <button class="btn btn-primary searchBtn" (click)="insertCase()">Create Case</button>
+                                                        </div>
+                                                        <ng-template #updateCaseFlag>
+                                                            <button class="btn btn-primary searchBtn" (click)="updateCase()">Update Case</button>
+                                                        </ng-template>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <ng-template #elsecaseFormFlag>
+                            <div class="tableBox searchTable">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form class="loginForm" [formGroup]="caseSearchForm">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="caseidinput">Case ID</label>
+                                                            <input type="text" formControlName="caseidinput" name="caseidinput" class="form-control fontGotham" placeholder="Case ID" />
+                                                            <div class="errorDiv" *ngIf="caseidinputVal.invalid && (caseidinputVal.dirty || caseidinputVal.touched)">
+                                                                <div *ngIf="caseidinputVal.errors?.['required']">Please Enter Case ID.</div> 
+                                                                <div *ngIf="caseidinputVal.errors?.['pattern']">Please Enter only numbers.</div> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="value">Value</label>
+                                                            <input type="text" formControlName="value" name="value" class="form-control fontGotham" placeholder="Value" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="fromdate">Frome Date</label>
+                                                            <div class="posRel">
+                                                                <input type="text" [matDatepicker]="fromDate" formControlName="fromdate" 
+                                                                name="fromdate" class="form-control fontGotham" placeholder="From Date" />
+                                                                <mat-datepicker-toggle class="iconPos" [for]="fromDate"></mat-datepicker-toggle>
+                                                                <mat-datepicker #fromDate></mat-datepicker>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="todate">To Date</label>
+                                                            <div class="posRel">
+                                                                <input type="text" [matDatepicker]="toDate" formControlName="todate" name="todate" class="form-control fontGotham" placeholder="To Date" />
+                                                                <mat-datepicker-toggle class="iconPos" [for]="toDate"></mat-datepicker-toggle>
+                                                                <mat-datepicker #toDate></mat-datepicker>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 text-center btnRow form-group">
+                                                        <button class="btn btn-primary searchBtn" (click)="searchCase()">Search Case</button>
+                                                    </div>
+                                                </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="showCaseTable">
+                                    <div class="col-md-12">
+                                        <table mat-table [dataSource]="dataSource1" matSort>
+                                            <ng-container matColumnDef="caseId">
+                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Case ID </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.caseId}} </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="agreementId">
+                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Agreement ID </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.data.agreementId}} </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="leadId">
+                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Lead ID </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.data.leadId}} </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="prospectId">
+                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Prospect ID </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.data.prospectId}} </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="custId">
+                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer ID </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.data.custId}} </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="Actions">
+                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+                                                <td mat-cell *matCellDef="let element"> <p class="actionsP">
+                                                    <span (click)="viewCase(element)" class="viewBtn"><i class="fa-regular fa-pen-to-square"></i></span>
+                                                    </p>
+                                                </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="noData">
+                                                <td class="text-center" mat-footer-cell *matFooterCellDef [attr.colspan]="displayedColumns1.length">
+                                                  No records found.
+                                                </td>
+                                            </ng-container>
+                                            <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                                            <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+                                            <tr mat-footer-row *matFooterRowDef="['noData']" [hidden]="dataSource1 && dataSource1.data.length > 0"></tr>
+                                        </table>
+                                        <mat-paginator  [pageSize]="10" [pageSizeOptions]="[10, 20, 100]"></mat-paginator>
+                                    </div>
+                                </div>
+                                <div class="tableView">
+                                    
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+</div> 

@@ -1,0 +1,21 @@
+<div class="sideNavMenu">
+    <div class="sideLogo">
+        <img src="../../assets/logo.png" >
+    </div>
+    <div class="proTitle">
+        <h4>GasLite</h4>
+    </div>
+    <div class="menuList">
+        <ul>
+            <li><a [routerLink]="['/home/case']" [routerLinkActive]="'active'">Case Master</a></li>
+            <li><a [routerLink]="['/home/channel']" [routerLinkActive]="'active'">Channel Master</a></li>
+            <!-- <li><a href="" >Document Type Master</a></li> -->
+            <!-- <li class="active"><a href="/search-operations" >Search Operations</a></li> -->
+            <li><a [routerLink]="['/home/searchOperations']" [routerLinkActive]="'active'">Search Operations</a></li>
+        </ul>
+    </div>
+    <div class="loginUser">
+        <p class="navUser">Welcome, <span>{{ userName }}</span></p>
+        <p class="navLogout"><span (click)="logout()">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></span></p>
+    </div>
+</div>
